@@ -4,7 +4,7 @@ class DBC
 	public $db;
 	public $query;
 	public $result;
-	public function DBI()
+	public function DBI() 
 	{
 		$this->db = new mysqli('localhost', 'root', '비밀번호', 'ppmanage'); //host, id, pw, database 순서입니다.
 		$this->db->query('SET NAMES UTF8');
