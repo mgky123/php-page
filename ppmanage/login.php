@@ -25,7 +25,7 @@ if($num==1)
 {
 	$_SESSION['id'] = $id;
 	$_SESSION['permit'] = $data[2];
-	echo "<script>location.replace('./index.php');</script>";
+	echo "<script>location.replace('/ppmanage/index.php');</script>";
 } else if(($id!="" || $pass!="") && $data[0]!=1)
 {
 	echo "<script>alert('아이디와 비밀번호가 맞지 않습니다.');</script>";
@@ -47,8 +47,7 @@ $base->content = "
 			<td><input type='password' Tabindex=2 name='logpass' size='16' placeholder='비밀번호'/></td>
 		</tr>
 		<tr>
-			<td><a href='./registi.php'>등록</a></td>
-			<td style='text-align:right;'><a href='./find.php'>찾기</a></td>
+			<td><a href='./registi.php'>회원가입</a></td>
 		</tr>
 	</table>
 </form>

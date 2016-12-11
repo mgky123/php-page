@@ -7,7 +7,7 @@ session_start();
 class Layout
 {
 	public $title="Booking management"; // 웹 페이지 제목
-	private $menu = array('Board'=>'board', 'Programs'=>'ppmanage/programs/index.php', 'Notice'=>'notice');
+	private $menu = array('Home'=>'ppmanage/index.php','Notice'=>'ppmanage/notice', 'Books'=>'ppmanage/books', 'Reserve'=>'ppmanage/reserve', 'Rent'=>'ppmanage/rent');
 	public $link; // CSS 링크 태그
 	public $style; // 스타일 적용 
 	public $content; // 메인 컨텐츠
@@ -68,24 +68,12 @@ class Layout
 	
 	public function ThisMenu($key, $value ,$side) //받아온 값으로 메뉴를 출력함
 	{
-		if($side=='1')
+		if(strpos($_SERVER['PHP_SELF'], $value)==false)
 		{
-			if(strpos($_SERVER['REQUEST_URI'], $value)==false)
-			{
-				$thismenu = $thismenu."<li><a href='./".$value."'>".$key."</a></li>";
-			} else
-			{
-				$thismenu = $thismenu."<li><b style='border-bottom:4px solid #90bbff;'>".$key."</b></li>";
-			}
+			$thismenu = $thismenu."<li><a href='/".$value."'>".$key."</a></li>";
 		} else
 		{
-			if(strpos($_SERVER['PHP_SELF'], $value)==false)
-			{
-				$thismenu = $thismenu."<li><a href='/".$value."'>".$key."</a></li>";
-			} else
-			{
-				$thismenu = $thismenu."<li><b style='border-bottom:4px solid #90bbff;'>".$key."</b></li>";
-			}
+			$thismenu = $thismenu."<li><b style='border-bottom:4px solid #90bbff;'>".$key."</b></li>";
 		}
 		echo $thismenu;
 	}
@@ -100,11 +88,11 @@ class Layout
 				$this->login="Login";
 			} else
 			{
-				$this->login="<a href='./login.php'>Login</a>";
+				$this->login="<a href='/ppmanage/login.php'>Login</a>";
 			}
 		} else
 		{
-			$this->login="<a href='./logout.php'>Logout</a>";
+			$this->login="<a href='/ppmanage/logout.php'>Logout</a>";
 		}
 	}
 	
