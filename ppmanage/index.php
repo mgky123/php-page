@@ -1,6 +1,6 @@
 <?php
 include_once "./layout.inc"; // 레이아웃을 include 함
-require_once './db.php';
+require_once './db.php'; 
 
 $base = new Layout; // Layout class 객체를 생성
 $base->link='./style.css'; //css
